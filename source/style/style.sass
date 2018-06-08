@@ -1,11 +1,12 @@
 $blue: #adadcf
+$grid-dimensions: 20
 
 @font-face
   font-family: 'Lato'
   src: url('./fonts/Lato-Regular.ttf')
 
 
-p
+p, h3, h2
   font-family: Lato, sans-serif
   font-size: 14px
   line-height: 1.75em
@@ -18,33 +19,45 @@ a:active
   color: $blue
 
 
-body
+.app
+  position: absolute
+  width: 100%
+  height: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  flex-direction: column
   
-  section.app
-    position: absolute
-    width: 100%
-    height: 100%
-    display: flex
-    align-items: center
-    justify-content: center
-    
-    div.board
-      position: relative
-      width: 90%
-      max-width: 400px
-      height: 90vw
-      max-height: 400px
-      background: $blue
+  .board
+    position: relative
+    width: 90%
+    max-width: 400px
+    height: 90vw
+    max-height: 400px
+    background: $blue
 
-      div.snake, div.food
-        position: absolute
-        width: 2.5%
-        height: 0
-        padding-bottom: 2.5%
-        background: black
+    .snake, .food
+      position: absolute
+      width: 1 / $grid-dimensions * 100%
+      height: 0
+      padding-bottom: 1 / $grid-dimensions * 100%
+      background: black
 
-      div.food
-        background: red
+    .food
+      background: red
+
+  p,h3
+    width: 90%
+    max-width: 400px
+    text-align: center
+    transition: opacity .5s linear
+
+  &.yesGame
+
+    .start
+      opacity: 0
+
+
 
 
     
